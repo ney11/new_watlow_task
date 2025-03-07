@@ -1,0 +1,21 @@
+.water-tank-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  height: 100vh;
+}
+
+mat-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 8px;
+  background: bisque;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}

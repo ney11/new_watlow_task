@@ -1,0 +1,7 @@
+<div class="water-tank-container">
+    @for (item of drinkTypes; track item) {
+    <mat-card [routerLink]="['/cocktail', item]">
+        <mat-card-content>{{item}}</mat-card-content>
+    </mat-card>
+    }
+</div>

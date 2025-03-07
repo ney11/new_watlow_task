@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* Loader Overlay - Centered Above Content */
+.spinner-overlay {
+    position: fixed; /* Ensures it covers the entire viewport */
+    top: 0; /* Covers from the very top */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the spinner */
+    background: rgba(255, 255, 255, 0.7); /* Light transparent background */
+    z-index: 9999; /* Ensures it's above everything */
+    pointer-events: auto; /* Prevent interaction with elements behind */
+  }
+  /* Optional: Add Shadow Effect */
+  .spinner-overlay mat-spinner {
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+  }

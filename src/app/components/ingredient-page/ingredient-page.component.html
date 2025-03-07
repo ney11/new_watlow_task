@@ -1,0 +1,48 @@
+<div class="ingridient-container">
+    <!-- Loader -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <mat-spinner [diameter]="50" color="accent"></mat-spinner>
+    </div>
+    
+    <!-- Header -->
+    <div class="header" style="display: flex;">
+        <h4 style="flex-grow: 1;font-weight: bold;text-align: center;">{{drinkDetails?.strDrink}} ingredients details
+        </h4>
+        <a [routerLink]="['/']" style="text-decoration: none; color: inherit;margin-left: auto;">
+            <mat-icon style="transform: rotate(180deg); cursor: pointer" color="accent" matTooltip="Back">
+                trending_flat
+            </mat-icon>
+        </a>
+    </div>
+
+    <mat-card *ngIf="drinkDetails">
+        <div class="drink-ingridient">
+            <!-- Left Panel (Image) -->
+            <div class="drink-image">
+                <img [src]="drinkDetails?.strDrinkThumb" [alt]="drinkDetails?.strDrink" />
+            </div>
+
+            <!-- Right Panel (Details) -->
+            <div class="ingridient-details">
+                <h3 style="font-style: oblique;">{{ drinkDetails?.strDrink }}</h3>
+                <p><strong>Category:</strong> {{ drinkDetails?.strCategory }}</p>
+                <p><strong>Glass:</strong> {{ drinkDetails?.strGlass }}</p>
+                <p><strong>Drink Type:</strong> {{ drinkDetails?.strAlcoholic }}</p>
+                <p><strong>Instructions:</strong> {{ drinkDetails.strInstructionsIT ? drinkDetails.strInstructionsIT :
+                    'NA' }}</p>
+                <div class="gradient-content-list">
+                    <div class="gradient-header" style="display: flex;gap: 5rem;align-items: center;">
+                        <div style="font-weight: 500;width: 30%;text-decoration: underline;">Gredient</div>
+                        <div style="font-weight: 500;width: 30%;text-decoration: underline;">Measurment</div>
+                    </div>
+                    @for (drink of drinkDetails?.ingredients; track drink) {
+                    <div style="display: flex;gap: 5rem;align-items: center;">
+                        <div style="width: 30%;">{{drink?.name}}</div>
+                        <div style="width: 30%;">{{drink?.measure}}</div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>

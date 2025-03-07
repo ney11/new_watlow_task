@@ -1,0 +1,53 @@
+.cocktail-container {
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+}
+
+.cocktail-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+  background: bisque;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.drink-card {
+  height: 25rem;
+  padding: 1rem;
+  font-size: 16px;
+}
+
+.drink-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-style: oblique;
+}
+
+.drink-image img {
+  width: 15rem;
+  height: 18rem;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.drink-description {
+  flex-grow: 1;
+}

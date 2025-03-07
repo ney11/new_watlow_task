@@ -1,0 +1,49 @@
+<div class="cocktail-container">
+    <!-- Loader -->
+    <div *ngIf="isLoading" class="spinner-overlay">
+        <mat-spinner [diameter]="50" color="accent"></mat-spinner>
+    </div>
+
+    <div class="header">
+        <h4 style="flex-grow: 1;font-weight: bold;text-align: center;">{{drinkType}} lists here</h4>
+        <a [routerLink]="['/']" style="text-decoration: none; color: inherit">
+            <mat-icon style="transform: rotate(180deg); cursor: pointer" color="accent" matTooltip="Back">
+                trending_flat
+            </mat-icon>
+        </a>
+    </div>
+
+    <div class="cocktail-body">
+        <!-- Filter -->
+        <mat-form-field appearance="outline">
+            <mat-label>Select to filter</mat-label>
+            <mat-select (selectionChange)="onFilter($event.value)">
+                @for (mode of filterModes; track mode) {
+                <mat-option [value]="mode">{{mode}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <!-- List of drinks -->
+        @for (drink of filterDrinks; track drink) {
+        <mat-card class="drink-card" [routerLink]="['/ingredient', drink.idDrink]"
+            [queryParams]="{ data: drink | json }">
+            <div class="drink-content">
+                <!-- Left: Image -->
+                <div class="drink-image">
+                    <img [src]="drink.strDrinkThumb" [alt]="drink.strDrink" />
+                </div>
+
+                <!-- Right: Description -->
+                <div class="drink-description">
+                    <h3 style="font-weight: bold;font-style: oblique;">{{ drink.strDrink }}</h3>
+                    <p><strong>Category:</strong> {{ drink.strCategory }}</p>
+                    <p><strong>Drink Type:</strong> {{ drink.strAlcoholic }}</p>
+                    <p><strong>Glass:</strong> {{ drink.strGlass }}</p>
+                    <p><strong>Instructions:</strong> {{ drink.strInstructions }}</p>
+                </div>
+            </div>
+        </mat-card>
+        }
+    </div>
+</div>
