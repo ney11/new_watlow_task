@@ -26,7 +26,7 @@
 
         <!-- List of drinks -->
         @for (drink of filterDrinks; track drink) {
-        <mat-card class="drink-card" [routerLink]="['/ingredient', drink.idDrink]"
+        <mat-card class="drink-card" [routerLink]="['/ingredient']"
             [queryParams]="{ data: drink | json }">
             <div class="drink-content">
                 <!-- Left: Image -->

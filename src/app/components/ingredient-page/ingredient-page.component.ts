@@ -35,15 +35,12 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 })
 
 export class IngredientPageComponent implements OnInit {
-    drinkId: string | null = null;
     drinkDetails: any;
     isLoading: boolean = true;
 
     constructor(private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-        this.drinkId = this.route.snapshot.paramMap.get('idDrink');
-
         /** Read other details from queryParams */
         this.route.queryParams.subscribe(params => {
             if (params["data"]) {
@@ -76,5 +73,9 @@ export class IngredientPageComponent implements OnInit {
             ...drink,
             ingredients
         };
+    }
+
+    encodeDrink(str: string): string {
+        return str.includes('Mojito') ? 'Mojito' : 'Margarita';
     }
 }

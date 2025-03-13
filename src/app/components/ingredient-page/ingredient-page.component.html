@@ -3,12 +3,13 @@
     <div *ngIf="isLoading" class="spinner-overlay">
         <mat-spinner [diameter]="50" color="accent"></mat-spinner>
     </div>
-    
+
     <!-- Header -->
     <div class="header" style="display: flex;">
         <h4 style="flex-grow: 1;font-weight: bold;text-align: center;">{{drinkDetails?.strDrink}} ingredients details
         </h4>
-        <a [routerLink]="['/']" style="text-decoration: none; color: inherit;margin-left: auto;">
+        <a [routerLink]="['/cocktail', encodeDrink(drinkDetails?.strDrink)]"
+            style="text-decoration: none; color: inherit;margin-left: auto;">
             <mat-icon style="transform: rotate(180deg); cursor: pointer" color="accent" matTooltip="Back">
                 trending_flat
             </mat-icon>

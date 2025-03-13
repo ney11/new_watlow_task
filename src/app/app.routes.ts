@@ -10,7 +10,7 @@ export const routes: Routes = [
         loadComponent: () => import('./components/cocktail-page/cocktail-page.component').then(m => m.CocktailPageComponent)
     },
     {
-        path: 'ingredient/:idDrink',
+        path: 'ingredient',
         loadComponent: () => import('./components/ingredient-page/ingredient-page.component').then(m => m.IngredientPageComponent)
     }
 ];
